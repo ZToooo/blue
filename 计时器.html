@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img {
+				width: 2rem;
+				height: 2rem;
+			}
+			
+			.dot {
+				font-size: 2rem;
+				height: 1rem;
+				width: 1rem;
+				color: #339fc3;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var s2 = document.getElementById('s_2');
+				var s1 = document.getElementById('s_1');
+				var m2 = document.getElementById('m_2');
+				var m1 = document.getElementById('m_1');
+				var h2 = document.getElementById('h_2');
+				var h1 = document.getElementById('h_1');
+
+				setInterval(function() {
+					TimeClock();
+				}, 1000);
+
+				function TimeClock() {
+					//date()获取当前时间
+					var now = new Date();
+					var hou = now.getHours();
+					var min = now.getMinutes();
+					var sec = now.getSeconds();
+
+					//秒
+					s1.src = 'img/' + parseInt(sec / 10) + '.png';
+					s2.src = 'img/' + parseInt(sec % 10) + '.png';
+
+					//分
+					m1.src = 'img/' + parseInt(min / 10) + '.png';
+					m2.src = 'img/' + parseInt(min % 10) + '.png';
+
+					//小时
+					h1.src = 'img/' + parseInt(hou / 10) + '.png';
+					h2.src = 'img/' + parseInt(hou % 10) + '.png';
+
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<img id='h_1' src="img/0.png" />
+		<img id='h_2' src="img/0.png" /><span class='dot'>:</span>
+		<img id='m_1' src="img/0.png" />
+		<img id='m_2' src="img/0.png" /><span class='dot'>:</span>
+		<img id='s_1' src="img/0.png" />
+		<img id='s_2' src="img/0.png" />
+		<br>
+		<img id='h_1' src="img/0.png" />
+		<img id='h_2' src="img/0.png" /><span class='dot'>:</span>
+		<img id='m_1' src="img/0.png" />
+		<img id='m_2' src="img/0.png" /><span class='dot'>:</span>
+		<img id='s_1' src="img/0.png" />
+		<img id='s_2' src="img/0.png" />
+		<br>
+		<input type="button" name="begin" id="begin" value="开始" />
+		<input type="button" name="stop" id="stop" value="停止" />
+		<input type="button" name="clear" id="clear" value="归零" />
+	</body>
+
+</html>

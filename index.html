@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script>
+			window.onload = function() {
+				{
+					//			var t1=document.getElementById("text1").value;
+					//			var t2=document.getElementById("text2").value;
+					//			
+					//			document.getElementById("btn").onclick=function(){
+					//				alert(t1+t2);
+					//			}
+				}
+
+				{
+					//			var t1=document.getElementById('text1');
+					//			var t2=document.getElementById('text2');
+					//			var btn=document.getElementById('btn');
+					//			btn.onclick=function(){
+					//				if(isNaN(t1.value) && isNaN(t1.value)){
+					//					alert("请检查输入的内容是否为纯数字");
+					//				}else(
+					//					alert(parseInt(t1.value) + parseInt(t2.value))
+					//				)
+					//			}
+				}
+
+			}
+			
+			var m1 = document.getElementsByClassName('check');
+			function chk(model) {
+				this.mod = model;
+				switch(mod) {
+					case 'all':
+						for(var i = 0; i < m1.length; i++) {
+							m1[i].checked = true;
+						}
+					break;
+
+					case 'turn':
+						for(var i = 0; i < m1.length; i++) {
+							if(m1[i].checked == false) {
+								m1[i].checked = true;
+							} else {
+								m1[i].checked = false;
+							}
+						}
+					break;
+
+					case 'clear':
+						for(var i = 0; i < m1.length; i++) {
+							m1[i].checked = false;
+						}
+					break;
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<!--<input id="text1" type="text" />
+		<input id="text2" type="text" />
+		<input id="btn" type="button" value="quan"/>-->
+
+		<input type="button" onclick=chk('all')  value="全选" />
+		<input type="button" onclick=chk('turn')  value="反选" />
+		<input type="button" onclick=chk('clear') value="清除" />
+		<input type="checkbox"  class="check" />
+		<input type="checkbox"  class="check" />
+		<input type="checkbox"  class="check" />
+		<input type="checkbox"  class="check" />
+		<input type="checkbox"  class="check" />
+		<input type="checkbox"  class="check" />
+		<input type="checkbox"  class="check" />
+		<input type="checkbox"  class="check" />
+
+	</body>
+
+</html>

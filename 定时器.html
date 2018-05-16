@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function() {
+				var onbtn1 = document.getElementById('btn1');
+				var onbtn2 = document.getElementById('btn2');
+				var timer = null;
+
+				onbtn1.onclick = function() {
+					timer = setInterval(function() {
+						alert('a');
+					}, 1000);
+				}
+
+				onbtn2.onclick = function() {
+					clearInterval(timer);
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<input type="button" name="btn1" id="btn1" value="开启" />
+		<input type="button" name="btn2" id="btn2" value="关闭" />
+	</body>
+
+</html>
