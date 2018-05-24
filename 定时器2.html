@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#showBox{height: 6rem;width: 17rem;position: absolute;overflow: hidden;}
+			#innerBox{height: 4rem;width: 80rem;position: absolute;}
+			img{height: 4rem;width: 4rem;float:left;}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var MoveLeft=document.getElementById('innerBox');
+				var lastPic=document.getElementById('last');
+				
+				MoveLeft.innerHTML=MoveLeft.innerHTML+MoveLeft.innerHTML;
+				
+				setInterval(function(){
+					if(MoveLeft.offsetLeft < -MoveLeft.offsetWidth/2){
+					MoveLeft.style.left='0';
+				}
+					MoveLeft.style.left=(MoveLeft.offsetLeft-1)+"px";
+				},10);
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id='showBox'>
+			<div id='innerBox'>
+				<img src="img/0.png"/>
+				<img src="img/1.png"/>
+				<img src="img/2.png"/>
+				<img src="img/3.png"/>
+				<img src="img/4.png"/>
+				<img src="img/5.png"/>
+				<img src="img/6.png"/>
+				<img src="img/7.png"/>
+				<img src="img/8.png"/>
+				<img id='last' src="img/9.png"/>
+			</div>
+		</div>
+	</body>
+</html>
