@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function() {
+				var textInfo = document.getElementById('tx');
+				var btn = document.getElementById('ck');
+				var uList = document.getElementById('build');
+				var del = document.getElementById('delete');
+				
+
+				btn.onclick = function() {
+					var addLi = document.createElement('li');
+					addLi.setAttribute('id', 'infoList');
+					
+					var addUl = document.createElement('ul');
+					var delBtn = document.createElement('input');
+					delBtn.setAttribute("type", "button");
+					delBtn.setAttribute('value', '删除');
+					delBtn.setAttribute('style', 'right:0px;position:absolute;');
+					delBtn.setAttribute('id', 'delete');
+					delBtn.setAttribute('onclick', 'remove()');
+					
+					var li=document.getElementsByTagName('li');
+					uList.insertBefore(addLi,li[0]); //插入前面
+					// uList.appendChild(addLi); //插入后面
+					addLi.innerHTML = textInfo.value;
+					addLi.appendChild(delBtn);
+
+				};
+
+				function remove() {
+					var father=this.parentNode;
+					console.log(father);
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<input type="text" name="" id="tx" value="" />
+		<input type="button" name="" id="ck" value="插入" />
+		<ul id='build'></ul>
+	</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1 {
+				height: 10rem;
+				width: 5rem;
+				background-color: red;
+				position: absolute;
+				left: -5rem;
+			}
+			
+			#div1 span {
+				position: absolute;
+				line-height: 2rem;
+				height: 3.7rem;
+				width: 1rem;
+				background-color: yellowgreen;
+				text-align: center;
+				line-height: 1.3rem;
+				top: 3rem;
+				left: 5rem;
+			}
+			
+			#d1 {
+				height: 5rem;
+				width: 5rem;
+				background-color: aquamarine;
+				opacity: 0.1;
+				position:absolute;
+				top:11rem;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var div1 = document.getElementById('div1');
+				var d1 = document.getElementById('d1');
+				
+				var timer = null;
+				div1.onmousemove = function() {
+					clearInterval(timer);
+					timer = setInterval(function() {
+						if(div1.offsetLeft == 0) {
+							clearInterval(timer);
+						} else {
+							div1.style.left = div1.offsetLeft + 10 + 'px';
+						}
+					}, 8)
+				}
+				div1.onmouseout = function() {
+					clearInterval(timer);
+					timer = setInterval(function() {
+						if(div1.offsetLeft != -80) {
+							div1.style.left = div1.offsetLeft - 10 + 'px';
+						} else {
+							clearInterval(timer);
+						}
+					}, 8)
+				}
+
+				d1.onmousemove = function() {
+					var alpha=document.getElementById('d1');
+					clearInterval(timer);
+					timer = setInterval(function() {
+						if(alpha.style.opacity.value < 1) {
+							alpha+=0.1;
+							d1.style.opacity =alpha;
+						} else {
+							clearInterval(timer);
+						}
+					}, 9)
+				}
+				
+				d1.onmouseout = function() {
+					var alpha=1;
+					clearInterval(timer);
+					timer = setInterval(function() {
+						if(alpha > 1) {
+							alpha-=0.1;
+							d1.style.opacity =alpha;
+						} else {
+							clearInterval(timer);
+						}
+					}, 9)
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id='div1'>
+			<span>分享到</span>
+		</div>
+		<div id='d1'></div>
+	</body>
+
+</html>

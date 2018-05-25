@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box {
+				width: 5rem;
+				height: 5rem;
+				background-color: darkred;
+				position: absolute;
+				left:0px;
+			}
+			
+			#begin_btn {
+				width: 3rem;
+				text-align: center;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var btn = document.getElementById('begin_btn');
+
+				btn.onclick = function() {
+					var box = document.getElementById('box');
+					
+					clearInterval(timer);
+					var timer=setInterval(function() {
+						var speed=1;
+						if(box.offsetLeft>=300){
+							clearInterval(timer);
+						}else{
+							box.style.left=box.offsetLeft+speed+'px';	
+						}
+					}, 6);
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<input type="button" value='开始' id='begin_btn' />
+		<div id='box'></div>
+	</body>
+
+</html>
